@@ -25,10 +25,8 @@
         look-at="[gps-camera]"
         scale="1 1 1"
       ></a-text>
-      
-      <a-entity geometry="primitive:plane;width:1;height:1;"
-      position="1 1 0" rotation="0 0 0" material="shader:gif;src:url(/ar-mural/img/tiktokerinvertido.gif);color:orange;"></a-entity>
 
+      <a-entity geometry="primitive:box;width:1;height:1;depth:0.1;" look-at="[gps-camera]" position="1 1 1" scale="0.500 0.500 0.500" material="shader:gif;src:url(/ar-mural/img/tiktokerinvertido.gif);"></a-entity>
 
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
