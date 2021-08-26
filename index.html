@@ -3,11 +3,11 @@
 <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
 <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
 <script>
-    window.onload = () => {                       navigator.geolocation.getCurrentPosition((position) => {
-        document.querySelector('a-text').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
-      });
-     }
-    window.onload = function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            document.querySelector('a-video').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
+  });
+
         AFRAME.registerComponent('videohandler', {
             init: function () {
                 var marker = this.el;
@@ -18,13 +18,13 @@
                     this.vid.play();
                 }.bind(this));
 
-		marker.addEventListener('markerLost', function() {
-			this.vid.pause();
-			this.vid.currentTime = 0;
-		}.bind(this));
+                marker.addEventListener('markerLost', function() {
+                    this.vid.pause();
+                    this.vid.currentTime = 0;
+                }.bind(this));
             }
         });
-    };
+    });
 </script>
 
 <style>
@@ -75,7 +75,7 @@
                 src="#vid"
                 position='50 150 -100'
                 rotation='90 0 180'
-                width='147,5'
+                width='147.5'
                 height='240'
                 >
             </a-video>
