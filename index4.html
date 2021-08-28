@@ -72,11 +72,14 @@
         <a-nft
             videohandler
             type='nft' url='/nft/cuadro4'
-            smooth="true" smoothCount="10" smoothTolerance="20" smoothThreshold="5" size="1.5"
+            smooth="true"   
+            smoothCount="10"
+            smoothTolerance=".01"
+            smoothThreshold="5"
         >
             <a-video
                 src="#vid"
-                position='50 150 -100'
+                position='0 0 0'
                 rotation='120 0 180'
                 width='147.5'
                 height='240'
@@ -84,12 +87,36 @@
             </a-video>
             <a-video
                 src="#vid"
-                position='100 30 -100'
+                position='500 0 0'
                 rotation='90 0 180'
                 width='147.5'
                 height='240'
                 >
             </a-video>
+            <a-video
+            src="#vid"
+            position='100 100 -400'
+            rotation='90 0 180'
+            width='147.5'
+            height='240'
+            >
+        </a-video>
+            <a-video
+            src="#vid"
+            position='200 200 -70'
+            rotation='90 0 180'
+            width='147.5'
+            height='240'
+            >
+        </a-video>
+        <a-video
+        src="#vid"
+        position='500 150 -400'
+        rotation='90 0 180'
+        width='147.5'
+        height='240'
+        >
+        </a-video>
         </a-nft>
 		<a-entity camera></a-entity>
 	</a-scene>
