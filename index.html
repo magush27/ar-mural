@@ -73,7 +73,7 @@
         >
 
         <a-assets>
-            <video src="/ar-mural/img/tiktokerinvertido.mp4"
+            <video src="/img/tiktokerinvertido.mp4"
                 preload="auto" id="vid" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
             </video>
@@ -82,24 +82,23 @@
 
         <a-nft
             videohandler
-            type='nft' url='/ar-mural/nft/cuadro'
+            type='nft' url='/nft/cuadro'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
-        
-            <a-video
-                src="#vid"
-                position='50 150 -100'
-                rotation='90 0 180'
-                width='147.5'
-                height='240'
-                >
-            </a-video>
-            
-            
+                   
 
         </a-nft>
 
-        <a-camera gps-camera rotation-reader></a-camera>
+        <a-camera gps-camera rotation-reader>
+            <a-video
+            src="#vid"
+            position='50 150 -100'
+            rotation='90 0 180'
+            width='147.5'
+            height='240'
+            >
+        </a-video>
+        </a-camera>
 <!--
             <a-entity geometry="primitive:plane;width:2;height:2;" position="-1.2 2.375 -1" material="shader:gif;src:url(/img/cat.gif);color:orange;"></a-entity>
 

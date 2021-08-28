@@ -63,7 +63,7 @@
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
         <a-assets>
-            <video src="/ar-mural/img/tiktokerinvertido.mp4"
+            <video src="/img/tiktokerinvertido.mp4"
                 preload="auto" id="vid" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
             </video>
@@ -71,12 +71,20 @@
 
         <a-nft
             videohandler
-            type='nft' url='/ar-mural/nft/cuadro'
-            smooth="true" smoothCount="10" smoothTolerance="3" smoothThreshold="5" size="0.5"
+            type='nft' url='/nft/cuadro4'
+            smooth="true" smoothCount="10" smoothTolerance="20" smoothThreshold="5" size="1.5"
         >
             <a-video
                 src="#vid"
                 position='50 150 -100'
+                rotation='120 0 180'
+                width='147.5'
+                height='240'
+                >
+            </a-video>
+            <a-video
+                src="#vid"
+                position='100 30 -100'
                 rotation='90 0 180'
                 width='147.5'
                 height='240'
