@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Image based tracking AR.js demo</title>
     <!-- import aframe and then ar.js with image tracking / location based features -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js">
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
     <script>
@@ -72,20 +72,23 @@
     arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
       <a-assets>
-          <video src="/ar-mural/img/tiktokerinvertido.mp4"
+          <video src="/img/tiktokerinvertido.mp4"
             preload="auto" id="vid" response-type="arraybuffer" loop
             crossorigin webkit-playsinline autoplay muted playsinline>
           </video>
 
-          <video src="/ar-mural/img/tiktokerinvertido.mp4"
+          <video src="/img/tiktoker2.mp4"
             preload="auto" id="vid2" response-type="arraybuffer" loop
             crossorigin webkit-playsinline autoplay muted playsinline>
           </video>
+
+          <a-asset-item id="abstracto" src="/img/abstract/scene.gltf"></a-asset-item>
+          
       </a-assets>
 
       <a-nft
         videohandler
-        type='nft' url='/ar-mural/nft/cuadro5'
+        type='nft' url='/nft/cuadro5'
         emitevents="true"
         smooth="true"   
         smoothCount="10"
@@ -93,8 +96,8 @@
         smoothThreshold="5">
         <a-video
           src="#vid"
-          position='0 0 0'
-          rotation='120 0 180'
+          position='1100 300 -700'
+          rotation='90 0 180'
           width='147.5'
           height='240'
           ></a-video>
@@ -106,6 +109,11 @@
             height='240'
             >
         </a-video>
+
+        <a-entity gltf-model="#abstracto" 
+        scale="50 50 50"
+        position="200 500 2"
+        ></a-entity>
       </a-nft>
 
       <a-entity camera></a-entity>
