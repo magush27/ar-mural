@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://libs.zappar.com/zappar-aframe/0.3.9/zappar-aframe.js"></script>
+    <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-spritesheet-component/dist/aframe-spritesheet-component.min.js"></script>
 
     <title>Zappar for A-Frame</title>
     <style>
@@ -26,7 +28,11 @@
         <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
 
         <a-assets>
-            <a-asset-item id="target-file" src="/zpt/cuadro3.zpt"/>
+            <a-asset-item id="target-file" src="/zpt/cuadro4.zpt"/>
+            <video src="/img/tiktokerinvertido.mp4"
+            preload="auto" id="vid" response-type="arraybuffer" loop
+            crossorigin webkit-playsinline autoplay muted playsinline>
+        </video>
         </a-assets>
 
         <a-entity camera zappar-camera></a-entity>
@@ -34,7 +40,28 @@
         <a-entity zappar-image="target: #target-file" id="image-group">
 
             <!-- PLACE 3D OBJECTS HERE TO TRACK FROM THE CENTER OF THE IMAGE -->
-            <a-box position="0 0 0.5"></a-box>
+            <a-video
+                src="#vid"
+                position='0.6 -0.6 -0.6'
+                rotation='0 0 0'
+                scale= '1 1 1'
+                width='0.5'
+                height='1'
+                >
+            </a-video>
+
+             <!-- clouds -->
+                <a-entity position="-1.5 3.5 -4" spe-particles="
+                position-spread: 1 0.2 0.5; 
+                velocity-spread: 0.1 0.05 0.1; 
+                particle-count: 200; 
+                max-age: 10; 
+                size: 6, 10; 
+                opacity: 0, 1, 0; 
+                angle: 0;
+                angle-spread: 6.28;
+                randomize-position: true;">
+                 </a-entity>
 
         </a-entity>
 

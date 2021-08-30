@@ -1,0 +1,129 @@
+<html>
+<head>
+    <!--
+    <script src="js/aframe-master.1.0.4.min.js"></script> -->
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    
+    <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+</head>
+
+<script>
+  window.onload = function() {
+
+      AFRAME.registerComponent('videohandler', {
+          init: function () {
+              var marker = this.el;
+              var fuego = document.querySelector('#fuego');
+
+              this.vid = document.querySelector("#vid");
+
+              marker.addEventListener('markerFound', function () {
+                  this.vid.play();
+                  fuego.setAttribute('visible', true);
+
+
+
+              }.bind(this));
+
+              AFRAME.registerComponent('rotation-reader', {
+                tick: function () {
+                    // `this.el` is the element.
+                    // `object3D` is the three.js object.
+
+                    // `rotation` is a three.js Euler using radians. `quaternion` also available.
+                    console.log(this.el.object3D.rotation);
+
+                    // `position` is a three.js Vector3.
+                    console.log(this.el.object3D.position);
+                }
+                });
+
+      marker.addEventListener('markerLost', function() {
+          this.vid.pause();
+          this.vid.currentTime = 0;
+          fuego.setAttribute('visible', false);
+
+      }.bind(this));
+          }
+      });
+      
+  };
+</script>
+
+<body>
+
+  <a-scene
+  vr-mode-ui="enabled: false;"
+  renderer='antialias: true; alpha: true; precision: mediump; logarithmicDepthBuffer: true;'
+  embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'
+  gesture-detector
+  id='scene'>
+  <a-assets>
+    <video src="/img/tiktoker.mp4"
+        preload="auto" id="vid" response-type="arraybuffer" loop
+        crossorigin webkit-playsinline autoplay muted playsinline>
+    </video>
+</a-assets>
+
+  
+    <!-- adding in look controls 
+    <a-entity id="camera" camera look-controls
+      position="0 1.6 0"
+      extended-wasd-controls="flyEnabled: true; turnEnabled: false; lookEnabled: false;
+      maxLookEnabled: false; coordinateLookControls: true;">
+    </a-entity> -->
+    <a-nft
+            videohandler
+            type='nft' url='/nft/cuadro4'
+            smooth="true"   
+            smoothCount="10"
+            smoothTolerance=".01"
+            smoothThreshold="5"
+            emitevents ="true"
+        >
+
+        <a-video
+        src="#vid"
+        position='0 0 0'
+        scale="1 1 1"
+        rotation='90 0 180'
+        width='147.5'
+        height='240'
+        >
+    </a-video>
+
+    </a-nft>
+
+    <a-camera rotation-reader>
+
+<a-entity 
+id ="fuego"
+position = "0 0 -2"
+class="clickable"
+ gesture-handler="minScale: 0.25; maxScale: 10"
+
+
+      spe-particles="
+        texture: img/particles/sparkle.png;
+        color: #FFFF00, #FF0000; 
+        size: 0.5, 0;
+        distribution: DISC;
+        radius: 0.0001;
+        velocity: 0.2;
+        velocity-spread: 0.5; 
+        angle: 0, 6.28;
+        particle-count: 1000;
+        blending: additive;
+        maxAge: 3; ">
+    </a-entity>      
+
+   
+       </a-camera>
+</a-scene>
+</body>
+</html>
