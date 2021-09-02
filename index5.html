@@ -26,8 +26,13 @@
         <a-entity zappar-compatibility-ui id="compatibility"></a-entity>
 
         <a-assets>
+
             <a-asset-item id="target-file" src="/ar-mural/zpt/cuadro4.zpt"/>
-            <video src="/ar-mural/img/tiktoker.mp4"
+                <video src="/ar-mural/img/tiktoker.mp4">
+            <a-asset-item id="target-file" src="/zpt/muralEditado.zpt"/>
+
+            <video src="/ar-mural/img/tiktokerinvertido.mp4"
+
             preload="auto" id="vid" response-type="arraybuffer" loop
             crossorigin webkit-playsinline autoplay muted playsinline>
         </video>
@@ -37,6 +42,11 @@
         </video>
 
         <a-asset-item id="abstracto" src="/ar-mural/img/abstract/scene.gltf"></a-asset-item>        
+
+        <img src="/ar-mural/img/mural/banco.png" alt="" id="banco">
+        <img src="/ar-mural/img/mural/puntosRojos.png" alt="" id="puntosRojos">
+        <img src="/ar-mural/img/mural/macetas.png" alt="" id="macetas">
+        <img src="/ar-mural/img/mural/Cuchuflos.png" alt="" id="cuchuflos">
 
         </a-assets>
 
@@ -63,11 +73,14 @@
                 height='0.5'
             >
         </a-video>
+            
+           <a-image src="#banco" width="3.4" height="2.4" position="-0.2 0.07 0.3"></a-image>
+           <a-image src="#macetas" width="3.9" height="2.6" position="0 0.1 0.35"></a-image>
+           <a-image src="#cuchuflos" width="3.5" height="2" position="0 -0.1 0.8"></a-image>
+           <a-image src="#puntosRojos" width="3.5" height="1.5" position="0 0 1"></a-image>
+
+
  
-        <a-entity gltf-model="#abstracto" 
-        scale="0.3 0.3 0.3"
-        position="0.3 -0.2 0"
-        ></a-entity>
 
         <script>
             let myImageGroup = document.getElementById("image-group");
